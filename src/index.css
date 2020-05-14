@@ -1,8 +1,6 @@
 body {
   background-color: white;
   text-decoration: none;
-  font-family: "Noto Sans KR", "Apple SD Gothic Neo", NanumBarunGothic,
-    NanumGothic, "Malgun Gothic", dotum, sans-serif;
   word-break: keep-all;
 }
 
@@ -10,7 +8,11 @@ html * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Noto Sans KR", "Noto Sans", sans-serif;
+
+  background-color: black;
+
+  -webkit-font-smoothing: none;
+  letter-spacing: 0.2rem;
 }
 
 input {
