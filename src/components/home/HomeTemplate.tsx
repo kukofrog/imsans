@@ -7,7 +7,6 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 
   color: white;
 
@@ -21,7 +20,30 @@ const Container = styled.div`
   }
 `;
 
+const Spacer = styled.div`
+  width: 100%;
+  flex: 1;
+`;
+
+const Header = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+
+  span {
+    padding: 20px;
+  }
+`;
+
+const Iframe = styled.iframe`
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+`;
+
 function HomeTemplate() {
+  const [fight, setFight] = useState<boolean>(false);
+
   const audio = new Audio("voice_sans.mp3");
 
   const sansvoice = () => {
@@ -29,10 +51,25 @@ function HomeTemplate() {
     audio.play();
   };
 
+  if (fight) {
+    return (
+      <Iframe
+        title="sans"
+        src="https://jcw87.github.io/c2-sans-fight/"
+      ></Iframe>
+    );
+  }
+
   return (
     <Container tabIndex={0} onKeyDown={sansvoice}>
+      <Spacer>
+        <Header>
+          <span onClick={() => setFight(true)}>fight with sans</span>
+        </Header>
+      </Spacer>
       <img src="sans1.gif" alt="" />
       <button onClick={sansvoice}>와</button>
+      <Spacer />
     </Container>
   );
 }
